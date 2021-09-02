@@ -6,7 +6,7 @@ let zl = 10;
 let path = '';
 let markers = L.featureGroup();
 
-let geojsonPath = '../Data/final_data.json';
+let geojsonPath = '../Data/csvjson.json';
 let geojson_data;
 let geojson_layer;
 let zoomdata = [];

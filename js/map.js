@@ -7,7 +7,7 @@ let path = '';
 let markers = L.featureGroup();
 
 // put this in your global variables
-let geojsonPath = '../Data/final_data.json';
+let geojsonPath = '../Data/neighborhoods (1).geojson';
 let geojson_data;
 let geojson_layer;
 
