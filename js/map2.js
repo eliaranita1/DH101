@@ -6,7 +6,7 @@ let zl = 10;
 let path = '';
 let markers = L.featureGroup();
 
-let geojsonPath = '../Data/csvjson.json';
+let geojsonPath = '../Data/neighborhoods.geojson';
 let geojson_data;
 let geojson_layer;
 let zoomdata = [];
@@ -30,17 +30,17 @@ $(document).ready(function () {
     //readCSV(path);
 });
 
-window.addEventListener('load', function () {
-    elements = document.getElementsByClassName('jsgrid-header-cell jsgrid-header-sortable');
-    console.log(elements);
-    elements[0].innerHTML = "Country";
-    elements[1].innerHTML = "Waste per person rank";
-    elements[2].innerHTML = "GDP (Millions)";
-    elements[3].innerHTML = "Plastic waste 2010 (Metric Tons)";
-    elements[4].innerHTML = "Plastic waste rank";
-})
-elements = document.getElementsByClassName('jsgrid-header-cell jsgrid-header-sortable');
-console.log(elements);
+// window.addEventListener('load', function () {
+//     elements = document.getElementsByClassName('jsgrid-header-cell jsgrid-header-sortable');
+//     console.log(elements);
+//     elements[0].innerHTML = "Country";
+//     elements[1].innerHTML = "Waste per person rank";
+//     elements[2].innerHTML = "GDP (Millions)";
+//     elements[3].innerHTML = "Plastic waste 2010 (Metric Tons)";
+//     elements[4].innerHTML = "Plastic waste rank";
+// })
+// elements = document.getElementsByClassName('jsgrid-header-cell jsgrid-header-sortable');
+// console.log(elements);
 //theButton = elements[3]; // or whatever you need to do to get the one you want and ignore the other one
 //elements.innerHTML = "Country"; // This should both add the new class and overwrite the old one
 
