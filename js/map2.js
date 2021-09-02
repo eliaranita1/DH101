@@ -3,46 +3,29 @@ let map;
 let lat = 0;
 let lon = 0;
 let zl = 10;
-let path = '';
-let markers = L.featureGroup();
+let path = '../Data/listings.csv';
+let markers = L.layerGroup();
 
-let geojsonPath = '../Data/neighborhoods.geojson';
+let geojsonPath = '../Data/neighbourhoods.geojson';
 let geojson_data;
 let geojson_layer;
 let zoomdata = [];
 let values = [];
-let datafortable = [
-];
+let datafortable = [];
 let data2;
 
 let brew = new classyBrew();
 let legend = L.control({ position: 'bottomright' });
 let info_panel = L.control();
 
-let fieldtomap = 'plastic_waste_2010';
-
-
+let fieldtomap = 'neighborhood';
 
 // initialize
 $(document).ready(function () {
     createMap(lat, lon, zl);
     getGeoJSON();
-    //readCSV(path);
+    readCSV(path);
 });
-
-// window.addEventListener('load', function () {
-//     elements = document.getElementsByClassName('jsgrid-header-cell jsgrid-header-sortable');
-//     console.log(elements);
-//     elements[0].innerHTML = "Country";
-//     elements[1].innerHTML = "Waste per person rank";
-//     elements[2].innerHTML = "GDP (Millions)";
-//     elements[3].innerHTML = "Plastic waste 2010 (Metric Tons)";
-//     elements[4].innerHTML = "Plastic waste rank";
-// })
-// elements = document.getElementsByClassName('jsgrid-header-cell jsgrid-header-sortable');
-// console.log(elements);
-//theButton = elements[3]; // or whatever you need to do to get the one you want and ignore the other one
-//elements.innerHTML = "Country"; // This should both add the new class and overwrite the old one
 
 // create the map
 function createMap(lat, lon, zl) {
@@ -53,19 +36,39 @@ function createMap(lat, lon, zl) {
     }).addTo(map);
 }
 
-// function to read csv data
-// function readCSV(path){
-// 	Papa.parse(path, {
-// 		header: true,
-// 		download: true,
-// 		complete: function(csvdata) {
-// 			console.log(csvdata);
+function mapCSV(data) {
 
-// 			// map the csvdata
-// 			mapCSV(csvdata);
-// 		}
-// 	});
-// }
+    // circle options
+    let circleOptions = {
+        radius: 4,
+        weight: 1,
+        color: 'white',
+        fillColor: 'dodgerblue',
+        fillOpacity: 1,
+        zIndexOffset: 1000
+    }
+
+
+    // loop through each entry
+    data.data.forEach(function (item, index) {
+
+        var popup = L.responsivePopup().setContent(`${item.name}<br><a href="${item.listing_url}"><img src="${item.picture_url}"  style = "max-width: 100%"
+    style = "height: auto"> </a>`);
+        // create marker
+        let marker = L.circleMarker([item.latitude, item.longitude], circleOptions)
+            .on('click', function () {
+                this.bindPopup(popup).openPopup()
+            })
+        // add marker to featuregroup		
+        markers.addLayer(marker)
+    })
+
+    // add featuregroup to map
+    markers.addTo(map)
+
+    // fit markers to map
+    //map.fitBounds(markers.getBounds())
+}
 
 // function to get the geojson data
 function getGeoJSON() {
@@ -91,8 +94,6 @@ function mapGeoJSON(field, num_classes, color, scheme) {
     // globalize the field to map
     fieldtomap = field;
 
-    // create an empty array
-
     // based on the provided field, enter each value into the array
     geojson_data.features.forEach(function (item, index) {
         if ((item.properties[field] != undefined)) {
@@ -111,53 +112,36 @@ function mapGeoJSON(field, num_classes, color, scheme) {
         style: getStyle, //call a function to style each feature
         onEachFeature: onEachFeature // actions on each feature
     }).addTo(map);
-    console.log(geojson_layer)
-    console.log(geojson_layer.getBounds())
     map.fitBounds(geojson_layer.getBounds())
-
-    // create the legend
-    createLegend();
 
     // create the infopanel
     createInfoPanel();
+}
 
-    // create table
-    createTable();
+// function to read csv data
+function readCSV(path) {
+    Papa.parse(path, {
+        header: true,
+        download: true,
+        complete: function (csvdata) {
+            console.log(csvdata);
+
+            // map the csvdata
+            mapCSV(csvdata);
+        }
+    });
 }
 
 function getStyle(feature) {
     return {
         stroke: true,
-        color: 'white',
+        color: 'blue',
         weight: 1,
         fill: true,
         fillColor: brew.getColorInRange(feature.properties[fieldtomap]),
-        fillOpacity: 0.8
+        fillOpacity: 0.2
+
     }
-}
-
-function createLegend() {
-    legend.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'info legend'),
-            breaks = brew.getBreaks(),
-            labels = [],
-            from, to;
-
-        for (var i = 0; i < breaks.length; i++) {
-            from = breaks[i];
-            to = breaks[i + 1];
-            if (to) {
-                labels.push(
-                    '<i style="background:' + brew.getColorInRange(to) + '"></i> ' +
-                    from.toFixed(0) + ' &ndash; ' + to.toFixed(0));
-            }
-        }
-
-        div.innerHTML = labels.join('<br>');
-        return div;
-    };
-
-    legend.addTo(map);
 }
 
 function createInfoPanel() {
@@ -172,11 +156,11 @@ function createInfoPanel() {
     info_panel.update = function (properties) {
         // if feature is highlighted
         if (properties) {
-            this._div.innerHTML = `<b>${properties['country']}</b><br>${fieldtomap}: ${properties[fieldtomap]}`;
+            this._div.innerHTML = `<b>${properties['neighbourhood']}`;
         }
         // if feature is not highlighted
         else {
-            this._div.innerHTML = 'Hover over a country';
+            this._div.innerHTML = 'Hover over a neighborhood';
         }
     };
 
@@ -195,194 +179,19 @@ function onEachFeature(feature, layer) {
 // on mouse over, highlight the feature
 function highlightFeature(e) {
     var layer = e.target;
-
-    // style to use on mouse over
-    layer.setStyle({
-        weight: 2,
-        color: '#666',
-        fillOpacity: 0.7
-    });
-
-    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
-    }
-
     info_panel.update(layer.feature.properties);
-
-    createDashboard(layer.feature.properties);
-
 }
 
 // on mouse out, reset the style, otherwise, it will remain highlighted
 function resetHighlight(e) {
-    geojson_layer.resetStyle(e.target);
     info_panel.update() // resets infopanel
 }
 
 // on mouse click on a feature, zoom in to it
 function zoomToFeature(e) {
-    console.log(e.target)
-    console.log(e.target.getBounds())
     map.fitBounds(e.target.getBounds());
 }
 
-function createDashboard(properties) {
-
-    // clear dashboard
-    $('.chart').empty();
-
-    //console.log(properties)
-
-    // chart title
-    let title = [['Gross Domestic Product (GDP)'], ['& Mismanaged Plastic Waste'], ['in ' + properties['country']]];
-document.getElementById('pol').innerHTML= properties['plastic_rank'];
-document.getElementById('gdp').innerHTML= properties['gdp_rank'];
-    // data values
-    let data = [
-        properties['gdp_md_est'],
-        (properties['plastic_waste_in_tons_per_person']* 100000)
-    ]
-
-    // data fields
-    let fields = [['GDP Estimate', '2010 (Millions)'], ['Mismanaged', 'Plastic Waste Per'
-    , '100000 People', '(Metric Tons)']]
-
-    // chart options
-    var options = {
-        chart: {
-            type: 'bar',
-            height: 300,
-            width: '100%',
-            foreColor: 'black',
-            animations: {
-                enabled: true,
-                easing: 'easeinout',
-                speed: 800,
-                animateGradually: {
-                    enabled: true,
-                    delay: 150
-                },
-                dynamicAnimation: {
-                    enabled: true,
-                    speed: 350
-                }
-            }
-        },
-
-        dataLabels: {
-            style: {
-                fontSize: '19px',
-                fontFamily: 'Helvetica, Arial, sans-serif',
-                fontWeight: 'bold',
-            },
-
-
-        },
-
-        title: {
-            text: title,
-            align: 'center',
-        },
-
-        plotOptions: {
-            bar: {
-                horizontal: true
-            }
-        },
-        series: [
-            {
-                data: data
-            }
-        ],
-        xaxis: {
-            categories: fields
-        }
-    }
-
-    var options2 = {
-        chart: {
-            type: 'pie',
-            height: 300,
-            width: '100%',
-            animations: {
-                enabled: true,
-                easing: 'easeinout',
-                speed: 700,
-                animateGradually: {
-                    enabled: true,
-                    delay: 150
-                },
-                dynamicAnimation: {
-                    enabled: true,
-                    speed: 350
-                }
-            }
-        },
-        title: {
-            text: 'Gross Domestic Product (GDP) in: ' + properties['country'],
-        },
-        series: data,
-        labels: fields,
-        legend: {
-            position: 'right',
-            offsetY: 0,
-            height: 230,
-        }
-    };
-
-    var chart = new ApexCharts(document.querySelector('.chart'), options)
-    chart.render()
-
-}
-
-function createTable() {
-
-
-    geojson_data.features.forEach(function (item) {
-        datafortable.push(item.properties)
-        zoomdata.push(item.geometry)
-    })
-    console.log(zoomdata)
-
-    let fields = [
-        { name: "country", type: "text" },
-        { name: 'waste_per_person_rank', type: 'number' },
-        { name: 'gdp_md_est', type: 'number' },
-        { name: fieldtomap, type: 'number' },
-        { name: 'plastic_rank', type: 'number' },
-
-    ]
-
-    $(".sidebar").jsGrid({
-        width: "100%",
-        height: "100%",
-        heading: true,
-        editing: true,
-        sorting: true,
-        paging: false,
-        autoload: false,
-
-        pageSize: 10,
-        pageButtonCount: 5,
-
-        data: datafortable,
-        fields: fields,
-        rowClick: function (datafortable) {
-            console.log("x");
-            console.log(datafortable)
-            data2 = datafortable;
-            console.log(data2);
-            zoomTo(datafortable.item.waste_per_person_rank)
-        },
-    });
-}
-
 function zoomTo(e) {
-    console.log(e);
-    console.log(geojson_layer)
-    console.log(geojson_layer._layers)
-    console.log(data2);
     map.fitBounds(geojson_layer.getLayers()[e - 1].getBounds());
-    createDashboard(data2.item);
-
 }
