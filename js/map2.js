@@ -2,7 +2,7 @@
 let map;
 let lat = 0;
 let lon = 0;
-let zl = 10;
+let zl = 5;
 let path = '../Data/listings.csv';
 let markers = L.layerGroup();
 
@@ -42,8 +42,8 @@ function mapCSV(data) {
     let circleOptions = {
         radius: 4,
         weight: 1,
-        color: 'white',
-        fillColor: 'dodgerblue',
+        color: 'black',
+        fillColor: 'red',
         fillOpacity: 1,
         zIndexOffset: 1000
     }
@@ -52,8 +52,8 @@ function mapCSV(data) {
     // loop through each entry
     data.data.forEach(function (item, index) {
 
-        var popup = L.responsivePopup().setContent(`${item.name}<br><a href="${item.listing_url}"><img src="${item.picture_url}"  style = "max-width: 100%"
-    style = "height: auto"> </a>`);
+        var popup = L.responsivePopup().setContent(`${item.name}<br> Room Type: ${item.room_type}  <br> Price: ${item.price} <br> Rating: ${item.review_scores_rating} /5 <br> <a href="${item.listing_url}"><img src="${item.picture_url}"  style = "max-width: 100%"
+    style = "height: auto"> </a> `);
         // create marker
         let marker = L.circleMarker([item.latitude, item.longitude], circleOptions)
             .on('click', function () {
