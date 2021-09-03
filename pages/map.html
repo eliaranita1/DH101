@@ -42,52 +42,39 @@
 
 <body>
 
-    <!-- <div class="header">
-        <div class="navbar">
-            <a href="../pages/home.html">Home</a>
-            <a href="data.html">Data</a>
-            <a href="map.html">Map</a>
-            <div class="dropdown">
-                <button class="dropbtn">Make a Difference
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="leg.html">Propositions</a>
-                    <a href="https://blueocean.net/plastic-pollution-resources-organizations-making-our-seas-plastic-free/">
-                        Other Organizations</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">About
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="team.html">Meet the Team</a>
-                    <a href="about.html">About the Project</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
     <div class="title">
         <p
-            style="text-align: center; margin-bottom: 150px; font-size: 200%;font-family: sans-serif; font-weight: bold;  background-color: rgb(17, 22, 22);color: cadetblue;">
+            style="text-align: center; margin-bottom: 150px; font-size: 200%;font-family: sans-serif; font-weight: bold;">
             LA Neighborhoods
         </p>
+    </div>
+
+    <div class="analysis">
+        <p>For my map I have plotted all of the Airbnb listings within Los Angeles County. I have also used Geojson
+            data from our dataset to delineate the different cities/neighborhoods within LA. If you hover the mouse over
+            an area it will tell you the name of the neighborhood in the info panel at the top right of the map. If you
+            click within that area it will zoom into that neighborhood. When
+            you click
+            the markers for the individual listings it will show the listing info along with a photograph which links to
+            the
+            actual listing on the Airbnb site.
+        <p>
+        <p>The data shown includes price, rating, and also location which can provide a better visual understanding of
+            where the majority of listings are and their relative prices. It is clear by looking at the map that there
+            are much more listings in west LA than there are on the
+            eastside, with downtown being a boundary between the densely packed listings and the more spread out ones.
+            This makes sense considering
+            that, in general, west LA tends to be higher income areas where people might have more resources to own
+            income properties. From the map we can
+            also compare listings to their proximity to tourist attractions, schools, airports, etc.. to try to find
+            patterns.
+        <p>
     </div>
 
     <div class="content">
         <div id="map"> </div>
     </div>
 
-    <!-- <div class="text">
-        <p
-            style="margin: 20px; font-size: 20px; font-family: sans-serif; background-color: rgb(17, 22, 22); margin-bottom: 20px; color: cadetblue;">
-            <!--Our maps can be navigated by zooming in/out by clicking the +/- or by clicking on a cluster, and by grab
-            & holding the map to change viewing locations. To show data on the map, click the “Layers” icon on the
-            top right to filter data as needed.-->
-        </p>
-    </div> -->
     <script src="../js/map2.js"></script>
 
 </body>

@@ -4,19 +4,12 @@ body, html {
     width: 100%;
 }
   
-  .header {
-    grid-area: header;
-    text-align: center;
-    padding: 10px;
-    background-color: rgb(10, 15, 15);
-  }
   
 body {
     display: grid;
-    grid-template-rows: 0px 0% 100%;
-    grid-template-columns: 0% 100% 0%;
-    grid-template-areas: "header header header" "sidebar title dashboard" "content content content";
-    background-color: rgb(17, 22, 22);
+    grid-template-rows: 10% 35% 100%;
+    grid-template-areas: "title" "analysis" "content";
+    background-color: black;
 }
 
 p {
@@ -24,6 +17,7 @@ p {
     margin-block-end: 0px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    margin-left: 20px;
 }
 
 
@@ -31,6 +25,18 @@ p {
     grid-area: title;
     text-align: center;
     margin-top: -20px;
+    margin-bottom: 5px;
+    background-color: black;
+    color: snow;
+}
+
+.analysis {
+grid-area: analysis;
+text-align: left;
+background-color: linen;
+font-size: larger;
+text-indent:40px;
+
 }
 
 .text {
@@ -50,15 +56,6 @@ p {
     width: 100%
 }
 
-.dashboard {
-    grid-area: dashboard;
-    padding: 10px;
-    background-color: rgb(131, 162, 167);
-    overflow: auto;
-    font-weight: 800;
-    word-wrap: break-word;
-}
-
 #map {
     position: relative;
     height:100%;
@@ -67,15 +64,14 @@ p {
 
 .content {
     grid-area: content;
-    background-color: rgb(17, 22, 22);
 }
 
 /* legend styles */
 .info {
 	padding: 6px 8px;
 	font: 14px/16px Arial, Helvetica, sans-serif;
-	background: white;
-	background: rgba(255,255,255,0.5);
+	/* background: white; */
+	background: rgba(255,255,255,0.8);
 	box-shadow: 0 0 15px rgba(0,0,0,0.2);
 	border-radius: 5px;
 	min-width: 250px;
@@ -102,5 +98,4 @@ p {
     position: relative;
     outline: none;
     width: auto;
-    background-color: rgb(17, 22, 22);
 }
