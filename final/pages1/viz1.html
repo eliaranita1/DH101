@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Airbnbb</title>
+    <meta charset="utf-8" />
+
+    <!-- style sheets -->
+    <link rel="stylesheet" href="../css/timeline.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="navbar">
+            <a href="home.html">Home</a>
+            <a href="timeline.html">Narrative</a>
+            <a href="map.html">Map</a>
+            <a href="data.html">About the data</a>
+            <div class="dropdown">
+                <button class="dropbtn">Graphs and data
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="viz1.html">How is Airbnb use distributed across Los Angeles?</a>
+                    <a href="viz2.html">Sum of reviews by neighborhood</a>
+                    <a href="viz3.html">How much of the Airbnb economy is made up of “business-like” properties that
+                        potentially
+                        threaten the local housing economy?</a>
+                    <a href="viz4.html">Availability greater than 95 days by neighborhood</a>
+                    <a href="viz5.html">Listing types</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">About
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="team.html">Meet the Team</a>
+                    <a href="about.html">About the Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="sidebar">
+
+        <h1 style="text-align: center;">
+            Distribution of properties by neighborhood
+        </h1>
+        <br>
+
+        <div class='tableauPlaceholder' id='viz1631237065253' style='position: relative'><noscript><a href='#'><img
+                        alt='Airbnb Listings in Los Angeles '
+                        src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;LA&#47;LAmap_16312369162210&#47;Sheet1&#47;1_rss.png'
+                        style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                <param name='embed_code_version' value='3' />
+                <param name='site_root' value='' />
+                <param name='name' value='LAmap_16312369162210&#47;Sheet1' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image'
+                    value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;LA&#47;LAmap_16312369162210&#47;Sheet1&#47;1.png' />
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='en-US' />
+            </object></div>
+        <script
+            type='text/javascript'>var divElement = document.getElementById('viz1631237065253'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+
+        <p1>
+            <pre style="margin-left: 10%;">
+
+                        This map of Los Angeles, California displays the spatial distribution of Airbnb listings, 
+                based on the publicly available Airbnb dataset. The densest areas include the coastal 
+                municipalities like Santa Monica and Long Beach, as well as Downtown Los Angeles, Beverly 
+                Hills, and Hollywood. The outer suburban areas like Compton and Lakewood have the smallest 
+                density of listings. This is to be expected, since travelers are more likely to stay close to 
+                tourist attractions in the downtown and coastal areas of Los Angeles. 
+                        While Airbnb now seems like a ubiquitous option for lodging to tourists, local residents 
+                may not be aware of the scope of Airbnb in their area and how it could be affecting their 
+                neighborhoods. This initial visualization is a baseline representation of the areas in 
+                which there is a strong presence of Airbnb properties. The map includes all listings 
+                regardless of review volume, meaning that the density of the red dots speaks to the supply 
+                of Airbnb listings by area, while review data can indicate the demand. The data 
+                visualization highlights the spatial concentration of revenue for Airbnb hosts, which would 
+                generally be highest in the most dense areas on the map with the most listings. Our other 
+                visualizations involving listing types and prices can further enhance this narrative, 
+                breaking down the distribution of revenue and what groups are benefitting most.
+                 
+
+    </pre>
+        </p1>
+
+    </div>
+
+
+    <script src="../js/home.js"></script>
+
+</body>
+
+</html>

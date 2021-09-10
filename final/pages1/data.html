@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Airbnbb</title>
+    <meta charset="utf-8" />
+
+    <!-- style sheets -->
+    <link rel="stylesheet" href="../css/timeline.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="navbar">
+            <a href="home.html">Home</a>
+            <a href="timeline.html">Narrative</a>
+            <a href="map.html">Map</a>
+            <a href="data.html">About the data</a>
+            <div class="dropdown">
+                <button class="dropbtn">Graphs and data
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="viz1.html">How is Airbnb use distributed across Los Angeles?</a>
+                    <a href="viz2.html">Sum of reviews by neighborhood</a>
+                    <a href="viz3.html">How much of the Airbnb economy is made up of “business-like” properties that potentially
+                      threaten the local housing economy?</a>
+                    <a href="viz4.html">Availability greater than 95 days by neighborhood</a>
+                    <a href="viz5.html">Listing types</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">About
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="team.html">Meet the Team</a>
+                    <a href="about.html">About the Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="sidebar">
+
+<h1 style= "text-align: center;">
+    About the data
+</h1>
+
+<p1>
+    <pre style= "margin-left: 10%;">
+        
+        The Inside Airbnb site is an independent and non-commercial project founded by Murray Cox, a digital 
+storyteller and community activist, as well as various volunteers. Inside Airbnb is not affiliated with 
+Airbnb nor any of its competitors; the dataset was created to open up public discussion about the effects 
+of short-term rentals on residential communities, as well as advocate for policies that protect cities 
+from the negative effects of Airbnb. The dataset uses publicly available information compiled from the 
+Airbnb website, including a 1-year availability calendar and review details of rental listings. Our team 
+is using data from August 2020 to August 2021 in our visualizations and analyses. The site states that 
+the data has already been cleaned, analyzed, and combined by the creators.
+        The Airbnb data provides different types of sets detailing listings, calendar, and review data. 
+When looking at the listings data, basic categories like location, neighborhood overview, stay details, 
+and price are shared, along with host information like acceptance and response rate. This information 
+allows us to analyze how Airbnb is affecting society geographically and temporally. For instance, we can 
+visualize how availability and prices are distributed across Los Angeles, or which areas are receiving 
+the most traffic from Airbnb based on review volume. This data analysis can supplement narratives about 
+how business from Airbnb is affecting local neighborhoods, and which ones are benefitting most.
+        Another important insight can be drawn from this dataset regarding the parties that are benefiting 
+from Airbnb services. Some hosts use Airbnb in its original method of home-sharing, living in the 
+properties they are renting to guests. Other hosts use Airbnb in a “business-like” manner, renting out 
+entire properties similarly to hotels. These types of listings are seen as potential threats to the 
+economy and integrity of local communities, as they can cause neighborhood disruptions, take away housing, 
+and promote gentrification. We can use the Airbnb dataset to quantify this narrative by looking at the 
+percentages of types of listings such as “entire home,” indicating that the host is not living on the 
+premises of the rental property.
+        Because the data is sourced only from publicly available information provided by the Airbnb 
+website, inevitably some sensitive details of the hosts, customers, and listings are not collected. For 
+instance, the listings data doesn’t include demographic and socioeconomic information about customers or 
+hosts like age, race, income, and gender identity. These holes could create limitations in the research 
+questions that can be raised about the impact of Airbnb on different demographics. Additionally, there 
+are silences within the given data, such as listings without any reviews. These data points can create 
+difficulties when assessing the actual traffic of Airbnb guests. Questions about globalization and travel 
+may also be limited by the absence of information about the stays, such as the purpose of bookings and 
+where customers are coming from.
+        Another complication in the analysis of this dataset is that only the previous twelve months’ 
+worth of data are shared. Therefore, it is difficult to illuminate long-term trends or compare different 
+time periods with this data. For example, investigating the effects of COVID-19 on tourism by looking at 
+the Airbnb data might not prove effective because the readily-available data only goes back to one year 
+ago. For similar reasons, it might be hard to predict how tourism might change in the future at the end of 
+the pandemic. 
+        Finally, the creation of the dataset itself could create inherent biases in our analysis. Inside 
+Airbnb “provides a platform to support advocacy for appropriate and effective policies to protect our 
+cities from the impacts of short-term rentals,” according to the website. The mission statement frames the 
+data with the lens that Airbnb negatively affects communities, which can create bias in the data analysis. 
+Inside Airbnb also controls the way in which the data is collected and categorized, which controls what 
+types of analyses and visualizations can be produced. In addition, there is little information about how 
+data is collected for the Inside Airbnb website, which could be an issue regarding the validity of data 
+that is being collected and used by the public. The code for data collection was stated to be “copy and 
+pasted” Python code.  While the author provided a Github link for the code, the page seems to no longer 
+be in service, which makes it difficult to guarantee the quality of the data. In our project, we mainly 
+use this data to qualitatively look at general patterns across Los Angeles, in order to mitigate the 
+effect of any small inconsistencies in the data. 
+
+    </pre>
+</p1>
+
+    </div>
+
+
+    <script src="../js/home.js"></script>
+
+</body>
+
+</html>
