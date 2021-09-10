@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Airbnbb</title>
+    <meta charset="utf-8" />
+
+    <!-- style sheets -->
+    <link rel="stylesheet" href="../css/timeline.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="navbar">
+            <a href="home.html">Home</a>
+            <a href="timeline.html">Narrative</a>
+            <a href="map.html">Map</a>
+            <a href="data.html">About the data</a>
+            <div class="dropdown">
+                <button class="dropbtn">Graphs and data
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="viz1.html">How is Airbnb use distributed across Los Angeles?</a>
+                    <a href="viz2.html">Sum of reviews by neighborhood</a>
+                    <a href="viz3.html">How much of the Airbnb economy is made up of “business-like” properties that
+                        potentially
+                        threaten the local housing economy?</a>
+                    <a href="viz4.html">Availability greater than 95 days by neighborhood</a>
+                    <a href="viz5.html">Listing types</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">About
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="team.html">Meet the Team</a>
+                    <a href="about.html">About the Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="sidebar">
+
+        <h1 style="text-align: center;">
+            Availability greater than 95 days by neighborhood
+        </h1>
+        <br>
+
+        <div class='tableauPlaceholder' id='viz1631259962666' style='position: relative'><noscript><a href='#'><img
+                        alt='Mean Price of Properties of Top 10 Neighborhoods '
+                        src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_16312594916060&#47;Sheet2&#47;1_rss.png'
+                        style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                <param name='embed_code_version' value='3' />
+                <param name='site_root' value='' />
+                <param name='name' value='Book1_16312594916060&#47;Sheet2' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image'
+                    value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_16312594916060&#47;Sheet2&#47;1.png' />
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='en-US' />
+            </object></div>
+        <script type='text/javascript'>var divElement = document.getElementById('viz1631259962666');
+            var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+
+        <br>
+        <p1>
+            <pre style="margin-left: 10%;">
+
+                        Under the assumption that a property with greater than 95 days of availability per year 
+                is a property that is not the primary residence of the renters, this visualization shows 
+                the neighborhoods that are most affected by Airbnb’s being used solely to generate revenue. 
+                In particular, these kinds of properties are harmful to the housing market because they 
+                are properties that could instead be allocated to people who are looking for long-term 
+                housing in the area. Additionally, the reduction in supply of houses in the market is one 
+                contributor of housing prices in neighborhoods, a problem which particularly affects those 
+                who are in need of low-income housing in high demand areas. 
+    </pre>
+        </p1>
+
+    </div>
+
+
+    <script src="../js/home.js"></script>
+
+</body>
+
+</html>
