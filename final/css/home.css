@@ -17,7 +17,7 @@ body, html {
   .header {
     grid-area: header;
     text-align: center;
-    padding: 10px;
+    /* padding: 10px; */
     background-color: #fff
   }
   
@@ -25,7 +25,7 @@ body, html {
   
   .navbar a {
     float: left;
-    font-size: 25px;
+    font-size: 15px;
     color: #FF385C;
     font-weight: bold;
     text-align: center;
@@ -43,7 +43,7 @@ body, html {
   /* Dropdown button */
   
   .dropdown .dropbtn {
-    font-size: 25px;
+    font-size: 15px;
     border: none;
     outline: none;
     color: #FF385C;
@@ -99,7 +99,7 @@ body, html {
   
   body {
     display: grid;
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: 40px 1fr;
     grid-template-columns: 100% 0%;
     grid-template-areas: "header header" "sidebar content";
     background-color: rgb(0, 0, 0);
@@ -115,10 +115,43 @@ body, html {
     background-size:contain;
     background-position: right;
     font-family: 'Source Sans Pro', sans-serif;
-    text-align: center;
+    /* text-align: center; */
     background-color: #fff;
     background-blend-mode: multiply;
     background-repeat:no-repeat;
+  }
+
+  .explore {
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 75px;
+  }
+
+  .live {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 55px;
+    margin-bottom: 75px;
+  }
+
+  .discover {
+    width: 80%;
+    margin-top: 55px;
+    margin-left: 10%;
+    display: flex;
+    margin-bottom: 75px;
+  }
+
+  /* .btn {
+    display: inline-block; 
+    margin-right: 20px;
+
+  } */
+
+  .livep {
+    text-align: left;
   }
 
   .bg {
@@ -164,3 +197,36 @@ body, html {
     background-color: rgb(94, 114, 114);
     color: white;
   }
+
+  /* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 30%;
+  margin-right: 5%;
+}
+
+/* Make the image responsive */
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
